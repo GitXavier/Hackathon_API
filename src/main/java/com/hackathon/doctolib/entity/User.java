@@ -1,9 +1,6 @@
 package com.hackathon.doctolib.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,10 +14,14 @@ public class User {
     private String lastname;
     private String phone;
     private Date birthday;
-    private float height;
+    private int height;
     private int weight;
     private boolean isPatient;
     private String sexe;
+
+    @OneToOne
+    @JoinColumn(name="pillDispenser_id", referencedColumnName = "id")
+    private PillDispenser pillDispenser;
 
     public User() { }
 
@@ -64,11 +65,11 @@ public class User {
         this.birthday = birthday;
     }
 
-    public float getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -94,5 +95,13 @@ public class User {
 
     public void setSexe(String sexe) {
         this.sexe = sexe;
+    }
+
+    public PillDispenser getPillDispenser() {
+        return pillDispenser;
+    }
+
+    public void setPillDispenser(PillDispenser pillDispenser) {
+        this.pillDispenser = pillDispenser;
     }
 }

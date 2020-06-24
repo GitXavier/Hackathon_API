@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 @RequestMapping("/piluliers")
-
 public class PillDispenserController {
 
     @Autowired

@@ -1,9 +1,10 @@
 package com.hackathon.doctolib.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Drug {
@@ -17,6 +18,10 @@ public class Drug {
     private Integer quantity;
     private String type;
     private String img_url;
+
+    @OneToMany(mappedBy = "drug")
+    @JsonBackReference("prescription")
+    private List<Prescription> prescriptions;
 
     public Drug() { }
 
@@ -66,5 +71,13 @@ public class Drug {
 
     public void setImg_url(String img_url) {
         this.img_url = img_url;
+    }
+
+    public List<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public void setPrescriptions(List<Prescription> prescriptions) {
+        this.prescriptions = prescriptions;
     }
 }

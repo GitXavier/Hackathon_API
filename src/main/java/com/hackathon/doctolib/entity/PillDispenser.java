@@ -12,12 +12,12 @@ public class PillDispenser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    String name;
-    String pathology;
-    String listPrescription;
+    private String name;
+    private String pathology;
+    private String listPrescription;
 
 
-    PillDispenser(){}
+    public PillDispenser(){}
 
     public long getId(){
         return this.id;

@@ -36,7 +36,7 @@ public class UserController {
         return service.update(id, element);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public boolean deleteBook(@PathVariable Long id) {
         return service.delete(id);
     }

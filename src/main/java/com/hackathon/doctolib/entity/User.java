@@ -15,9 +15,12 @@ public class User {
 
     private String firstname;
     private String lastname;
-    private Integer phone;
+    private String phone;
     private Date birthday;
+    private float height;
+    private int weight;
     private boolean isPatient;
+    private String sexe;
 
     public User() { }
 
@@ -45,11 +48,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -61,11 +64,35 @@ public class User {
         this.birthday = birthday;
     }
 
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
     public boolean isPatient() {
         return isPatient;
     }
 
     public void setPatient(boolean patient) {
         isPatient = patient;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 }

@@ -23,8 +23,13 @@ public class Prescription {
 
     @ManyToOne
     @JoinColumn(name = "pillDispenser_id")
-    @JsonBackReference
+    @JsonBackReference("pilulier")
     private PillDispenser pillDispenser;
+
+    @ManyToOne
+    @JsonBackReference("prescription")
+    @JoinColumn(name = "drug_id")
+    private Drug drug;
 
     public Prescription(){}
 
@@ -91,5 +96,13 @@ public class Prescription {
 
     public void setPillDispenser(PillDispenser pillDispenser) {
         this.pillDispenser = pillDispenser;
+    }
+
+    public Drug getDrug() {
+        return drug;
+    }
+
+    public void setDrug(Drug drug) {
+        this.drug = drug;
     }
 }

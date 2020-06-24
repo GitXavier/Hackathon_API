@@ -16,11 +16,8 @@ public class PillDispenser {
     private String pathology;
 
     @OneToMany(mappedBy = "pillDispenser")
-    @JsonManagedReference
+    @JsonBackReference("pilulier")
     private List<Prescription> prescriptions;
-
-    private String listPrescription;
-
 
     public PillDispenser(){}
 
@@ -33,9 +30,6 @@ public class PillDispenser {
     public String getPathology(){
         return this.pathology;
     }
-    public String getListPrescription(){
-        return this.listPrescription;
-    }
 
     public void setId(Long id){
         this.id=id;
@@ -45,9 +39,6 @@ public class PillDispenser {
     }
     public void setPathology(String pathology){
         this.pathology=pathology;
-    }
-    public void setListPrescription(String listPrescription){
-        this.listPrescription=listPrescription;
     }
 
     public List<Prescription> getPrescriptions() {

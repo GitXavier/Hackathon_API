@@ -20,13 +20,11 @@ import com.hackathon.doctolib.entity.Prescription;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/prescription")
-
+@RequestMapping("/prescriptions")
 public class PrescriptionController {
 
     @Autowired 
     PrescriptionService service;
-
 
     @GetMapping
     public List<Prescription> getPropertyAll() {

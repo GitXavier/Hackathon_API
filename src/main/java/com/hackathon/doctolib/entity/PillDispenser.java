@@ -1,25 +1,30 @@
 package com.hackathon.doctolib.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-
 public class PillDispenser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
     private String name;
     private String pathology;
+
+    @OneToMany(mappedBy = "pillDispenser")
+    @JsonManagedReference
+    private List<Prescription> prescriptions;
+
     private String listPrescription;
 
 
     public PillDispenser(){}
 
-    public long getId(){
+    public Long getId(){
         return this.id;
     }
     public String getName (){
@@ -32,7 +37,7 @@ public class PillDispenser {
         return this.listPrescription;
     }
 
-    public void setId(long id){
+    public void setId(Long id){
         this.id=id;
     }
     public void setName(String name) {
@@ -45,6 +50,11 @@ public class PillDispenser {
         this.listPrescription=listPrescription;
     }
 
+    public List<Prescription> getPrescriptions() {
+        return prescriptions;
+    }
 
-    
+    public void setPrescriptions(List<Prescription> prescriptions) {
+        this.prescriptions = prescriptions;
+    }
 }

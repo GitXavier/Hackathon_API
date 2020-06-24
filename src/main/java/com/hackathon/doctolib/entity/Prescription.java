@@ -1,33 +1,37 @@
 package com.hackathon.doctolib.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-
 public class Prescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
-    Integer quantity;
-    Integer frequency;
-    Integer duration;
-    Date startDate;
-    String moment;
-    Date hours;
-    String comment;
+    private Long id;
+    private Integer quantity;
+    private Integer frequency;
+    private Integer duration;
+    private Date startDate;
+    private String moment;
+    private Date hours;
+    private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "pillDispenser_id")
+    @JsonBackReference
+    private PillDispenser pillDispenser;
 
     public Prescription(){}
 
-    public long getId(){
+    public Long getId(){
         return this.id;
     }
-    public void setId(long id){
+    public void setId(Long id){
         this.id=id;
     }
     public Integer getQuantity(){
@@ -72,5 +76,20 @@ public class Prescription {
     public void setComment(String comment){
         this.comment=comment;
     }
-    
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public PillDispenser getPillDispenser() {
+        return pillDispenser;
+    }
+
+    public void setPillDispenser(PillDispenser pillDispenser) {
+        this.pillDispenser = pillDispenser;
+    }
 }

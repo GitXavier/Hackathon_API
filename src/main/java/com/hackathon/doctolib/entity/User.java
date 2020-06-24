@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -14,7 +15,9 @@ public class User {
 
     private String firstname;
     private String lastname;
-    private String imageUrl;
+    private Integer phone;
+    private Date birthday;
+    private boolean isPatient;
 
     public User() { }
 
@@ -42,11 +45,27 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public boolean isPatient() {
+        return isPatient;
+    }
+
+    public void setPatient(boolean patient) {
+        isPatient = patient;
     }
 }

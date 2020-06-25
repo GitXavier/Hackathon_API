@@ -14,6 +14,7 @@ public class PillDispenser {
     private Long id;
     private String name;
     private String pathology;
+    private Boolean isModel;
 
     @OneToMany(mappedBy = "pillDispenser")
     @JsonBackReference("pilulier")
@@ -47,5 +48,11 @@ public class PillDispenser {
 
     public void setPrescriptions(List<Prescription> prescriptions) {
         this.prescriptions = prescriptions;
+    }
+    public Boolean getIsModel(){
+        return this.isModel;
+    }
+    public void setIsModel(Boolean isModel){
+        this.isModel=isModel;
     }
 }

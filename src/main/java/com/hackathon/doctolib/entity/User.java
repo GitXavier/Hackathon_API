@@ -12,12 +12,14 @@ public class User {
 
     private String firstname;
     private String lastname;
-    private String phone;
+    private Integer phone;
     private Date birthday;
     private int height;
     private int weight;
     private boolean isPatient;
     private String sexe;
+    private Boolean isStop;
+    private Boolean isEnd;
 
     @OneToOne
     @JoinColumn(name="pillDispenser_id", referencedColumnName = "id")
@@ -49,11 +51,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
@@ -104,4 +106,18 @@ public class User {
     public void setPillDispenser(PillDispenser pillDispenser) {
         this.pillDispenser = pillDispenser;
     }
+
+    public Boolean getIsStop(){
+        return this.isStop;
+    }
+    public void setIsStop(Boolean isStop){
+        this.isStop=isStop;
+    }
+    public Boolean getIsEnd(){
+        return this.isEnd;
+    }
+    public void setIsEnd(Boolean isEnd){
+        this.isEnd=isEnd;
+    }
+
 }
